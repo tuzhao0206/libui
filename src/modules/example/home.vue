@@ -9,7 +9,11 @@
     <ex-content>
       <div class="list compact overlap">
         <router-link class="item" :to="$prelang('example/button')">
-          <div class="text">Button</div>
+          <div class="text">按钮</div>
+          <i class="bt-icon">&#xe61a;</i>
+        </router-link>
+        <router-link class="item" :to="$prelang('example/page')">
+          <div class="text">翻页</div>
           <i class="bt-icon">&#xe61a;</i>
         </router-link>
       </div>
