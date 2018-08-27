@@ -1,0 +1,280 @@
+@import '../base/fn';
+.bt-button {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+  margin: 0;
+  outline: 0;
+  padding: 12px 20px;
+  transition: 0.1s;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: @buttonBorderRadius;
+  font-size: @buttonFontSize;
+  & + & {
+    margin-left: 10px;
+  }
+  &.round {
+    border-radius: 20px;
+  }
+  &.circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &.default {
+    color: @buttonDefaultFontColor;
+    background-color: @buttonDefaultBg;
+    border-color: @buttonDefaultBorderColor;
+    &:hover,
+    &:active {
+      color: @buttonDefaultActiveFontColor;
+      background-color: @buttonDefaultActiveBg;
+    }
+    &:active {
+      border-color: @buttonDefaultActiveBorderColor;
+    }
+    &.disabled,
+    &[disabled] {
+      color: @buttonDefaultDisabledFontColor;
+      background-color: @buttonDefaultDisabledBg;
+    }
+  }
+  &.primary {
+    color: @white;
+    background-color: @buttonPrimaryBg;
+    &:hover {
+      background-color: @buttonPrimaryHoverBg;
+    }
+    &:active {
+      background-color: @buttonPrimaryActiveBg;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 0.4;
+    }
+  }
+  &.success {
+    color: @white;
+    background-color: @buttonSuccessBg;
+    &:hover {
+      background-color: @buttonSuccessHoverBg;
+    }
+    &:active {
+      background-color: @buttonSuccessActiveBg;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 0.4;
+    }
+  }
+  &.warning {
+    color: @white;
+    background-color: @buttonWarningBg;
+    &:hover {
+      background-color: @buttonWarningHoverBg;
+    }
+    &:active {
+      background-color: @buttonWarningActiveBg;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 0.4;
+    }
+  }
+  &.driving {
+    color: @white;
+    background-color: @buttonDrivingBg;
+    &:hover {
+      background-color: @buttonDrivingHoverBg;
+    }
+    &:active {
+      background-color: @buttonDrivingActiveBg;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 0.4;
+    }
+  }
+  &.guiding {
+    color: @white;
+    background-color: @buttonGuidingBg;
+    &:hover {
+      background-color: @buttonGuidingHoverBg;
+    }
+    &:active {
+      background-color: @buttonGuidingActiveBg;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 0.4;
+    }
+  }
+  &[class*='plain-'] {
+    background-color: transparent;
+    &.disabled,
+    &[disabled] {
+      color: @buttonDefaultDisabledFontColor;
+      border-color: @buttonDefaultDisabledFontColor;
+    }
+  }
+  &.plain-default {
+    color: @buttonDefaultFontColor;
+    border-color: @buttonDefaultBorderColor;
+    &:hover,
+    &:active {
+      color: @buttonDefaultActiveFontColor;
+      background-color: @buttonDefaultActiveBg;
+    }
+    &:active {
+      border-color: @buttonDefaultActiveBorderColor;
+    }
+  }
+  &.plain-primary {
+    color: @blue;
+    border-color: lighten(@blue, 20%);
+    &:hover {
+      color: @white;
+      background-color: @buttonPrimaryHoverBg;
+    }
+    &:active {
+      background-color: @buttonPrimaryActiveBg;
+    }
+  }
+  &.plain-success {
+    color: @green;
+    border-color: lighten(@green, 20%);
+    &:hover {
+      color: @white;
+      background-color: @buttonSuccessHoverBg;
+    }
+    &:active {
+      background-color: @buttonSuccessActiveBg;
+    }
+  }
+  &.plain-warning {
+    color: @red;
+    border-color: lighten(@red, 20%);
+    &:hover {
+      color: @white;
+      background-color: @buttonWarningHoverBg;
+    }
+    &:active {
+      background-color: @buttonWarningActiveBg;
+    }
+  }
+  &.plain-driving {
+    color: @orange;
+    border-color: lighten(@orange, 20%);
+    &:hover {
+      color: @white;
+      background-color: @buttonDrivingHoverBg;
+    }
+    &:active {
+      background-color: @buttonDrivingActiveBg;
+    }
+  }
+  &.plain-guiding {
+    color: @yellow;
+    border-color: lighten(@yellow, 20%);
+    &:hover {
+      color: @white;
+      background-color: @buttonGuidingHoverBg;
+    }
+    &:active {
+      background-color: @buttonGuidingActiveBg;
+    }
+  }
+
+  .bt-icon + span,
+  span + .bt-icon {
+    margin-left: 5px;
+  }
+  // 加载中 灰图
+  .loading {
+    animation: ex-kf-rotate 2s linear infinite;
+  }
+  // 小按钮
+  &.sm {
+    width: auto;
+    padding: 0 @buttonSmallGap;
+    line-height: @buttonSmallHeight;
+    font-size: @buttonSmallFontSize;
+  }
+  // 特小按钮
+  &.xs {
+    width: auto;
+    padding: 0 @buttonTinyGap;
+    line-height: @buttonTinyHeight;
+    font-size: @buttonTinyFontSize;
+  }
+  // 直角按钮
+  &.square {
+    border-radius: 0;
+    &:after {
+      border-radius: 0;
+    }
+  }
+  // 无底色按钮
+  &.literal {
+    background-color: transparent;
+    &:after {
+      content: none;
+    }
+  }
+}
+
+.button-group {
+  .setFlex();
+  > .button {
+    display: block;
+    flex: 1;
+  }
+  > .button + .button {
+    margin-top: 0 !important;
+    margin-left: @buttonGroupGap;
+  }
+  &.compact {
+    > .button + .button {
+      margin-left: -1px;
+    }
+    // 非首个按钮左边圆角
+    > .button:not(.square):not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    > .button:not(.square):not(:first-child):after {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    // 非末尾按钮右边圆角
+    > .button:not(.square):not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    > .button:not(.square):not(:last-child):after {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    // 当按钮组嵌入有border的容器时，取消边框，新增分割线。例如 list > item, modal等
+    &.nesting > .button {
+      &:after {
+        content: none;
+      }
+      & + .button {
+        margin-left: 0;
+        .hairline(0, 0, 0, 1px);
+      }
+    }
+  }
+}

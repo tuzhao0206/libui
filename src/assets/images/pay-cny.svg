@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/light/cny</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="30" height="30"></rect>
+    </defs>
+    <g id="img-res" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy-112">
+            <g id="Group-64">
+                <g id="icon/light/cny">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle" opacity="0" fill-rule="nonzero"></g>
+                    <path d="M15,28 C7.82029825,28 2,22.1797017 2,15 C2,7.82029825 7.82029825,2 15,2 C22.1797017,2 28,7.82029825 28,15 C28,22.1797017 22.1797017,28 15,28 Z M15,27 C21.627417,27 27,21.627417 27,15 C27,8.372583 21.627417,3 15,3 C8.372583,3 3,8.372583 3,15 C3,21.627417 8.372583,27 15,27 Z M15,26 C8.92486775,26 4,21.0751322 4,15 C4,8.92486775 8.92486775,4 15,4 C21.0751322,4 26,8.92486775 26,15 C26,21.0751322 21.0751322,26 15,26 Z" id="Combined-Shape-Copy-3" fill="#E74949" mask="url(#mask-2)"></path>
+                    <polygon id="Rectangle-2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" points="10 9 12 9 15 15 13 15"></polygon>
+                    <polygon id="Rectangle-2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" transform="translate(17.500000, 12.000000) scale(-1, 1) translate(-17.500000, -12.000000) " points="15 9 17 9 20 15 18 15"></polygon>
+                    <rect id="Rectangle-3" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" x="11" y="14" width="8" height="2"></rect>
+                    <rect id="Rectangle-3-Copy" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" x="11" y="17" width="8" height="2"></rect>
+                    <rect id="Rectangle-4" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)" x="13.75" y="15" width="2.5" height="7"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
