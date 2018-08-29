@@ -1,3 +1,4 @@
+import '../less/index.less';
 import Button from './button';
 import ButtonGroup from './button/group';
 import Space from './space';

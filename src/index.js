@@ -9,7 +9,6 @@ import 'core-js/es7/string';
 import 'core-js/es7/promise';
 
 // import business
-import './less/index.less';
 import './utils/axios';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
@@ -56,8 +55,6 @@ const router = new VueRouter({
       component: components.Panel,
       children: routes,
     },
-    // ...routes,
-    { path: '*', component: components.NoMatch },
   ],
   scrollBehavior() {
     return { x: 0, y: 0 };
