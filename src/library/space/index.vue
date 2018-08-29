@@ -1,5 +1,5 @@
 <template>
-  <div :style="inside ? `padding: ${space}` : `margin: ${space}`">
+  <div class="bt-space" :style="inside ? `padding: ${space}` : `margin: ${space}`">
     <slot />
   </div>
 </template>

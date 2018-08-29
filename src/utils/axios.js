@@ -1,10 +1,6 @@
 import axios from 'axios';
 import Cache from './cache';
 import store from '../ducks';
-import HOSTS from '../env.config';
-import { removeQuery } from '../utils/helper';
-import Env from '../utils/env';
-import JSBridge from '../utils/bridge';
 
 // 缓存最近的20个请求
 const cache = new Cache(20);
@@ -62,11 +58,6 @@ axios.interceptors.request.use(
         });
       }
     }
-    // APP追加TOKEN
-    if (Env.is('app') && store.state.token) {
-      config.headers.token = store.state.token;
-      config.headers.language = store.state.locale;
-    }
     return config;
   },
   error => {
@@ -115,25 +106,7 @@ axios.interceptors.response.use(
     return data;
   },
   error => {
-    // 授权异常
-    if (error.response && error.response.status === 401) {
-      if (error.config.force !== false) {
-        // APP登录
-        if (Env.is('app')) {
-          JSBridge.login();
-        }
-        // 网页登录
-        else {
-          const locale = store.state.locale;
-          const next = encodeURIComponent(removeQuery('ticket', location.href));
-          location.href = `${HOSTS.LOGIN}/login?locale=${locale}&service=${next}`;
-        }
-      }
-      count = -1;
-      store.dispatch('hideToast');
-    }
-    // 主动取消
-    else if (axios.isCancel(error)) {
+    if (axios.isCancel(error)) {
       count = count - 1;
       if (count === 0) {
         store.dispatch('hideToast');

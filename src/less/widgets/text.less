@@ -21,6 +21,23 @@
   text-decoration: line-through;
 }
 
+// 文字对齐
+.text-justify {
+  .setFlex(stretch, value);
+  .label {
+    margin-right: @listItemGapH;
+    min-width: 4em;
+    text-align: justify;
+    text-align-last: justify;
+  }
+  .value {
+    .ellipsis();
+  }
+  + .text-justify {
+    margin-top: 6px;
+  }
+}
+
 // 大小
 .text-xxxl {
   font-size: 24px;

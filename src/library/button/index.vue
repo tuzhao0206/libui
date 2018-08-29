@@ -1,12 +1,12 @@
 <template>
   <button class="bt-button" :disabled="idisabled" @click="$emit('click', $event)">
     <template v-if="align === 'left'">
-      <i class="bt-icon loading" v-if="loading">&#xe644;</i>
+      <i class="bt-icon bt-loading" v-if="loading">&#xe644;</i>
       <i class="bt-icon" v-else-if="icon" v-html="icon"></i>
     </template>
     <span v-if="$slots.default"><slot /></span>
     <template v-if="align === 'right'">
-      <i class="bt-icon loading" v-if="loading">&#xe644;</i>
+      <i class="bt-icon bt-loading" v-if="loading">&#xe644;</i>
       <i class="bt-icon" v-else-if="icon" v-html="icon"></i>
     </template>
   </button>

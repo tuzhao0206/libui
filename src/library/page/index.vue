@@ -4,15 +4,15 @@
       <li :class="prevClass" @click="prev"><i class="bt-icon">&#xe60e;</i></li>
 
       <li v-if="page !== 1" @click="goto(1)">1</li>
-      <li v-if="page - 4 > 1" class="jump"><i class="bt-icon">&#xe60c;</i></li>
+      <li v-if="page - 4 > 1" class="bt-jump"><i class="bt-icon">&#xe60c;</i></li>
       <li v-if="page - 3 > 1" @click="goto(page - 3)">{{page - 3}}</li>
       <li v-if="page - 2 > 1" @click="goto(page - 2)">{{page - 2}}</li>
       <li v-if="page - 1 > 1" @click="goto(page - 1)">{{page - 1}}</li>
-      <li class="active">{{page}}</li>
+      <li class="bt-active">{{page}}</li>
       <li v-if="page + 1 < maxp" @click="goto(page + 1)">{{page + 1}}</li>
       <li v-if="page + 2 < maxp" @click="goto(page + 2)">{{page + 2}}</li>
       <li v-if="page + 3 < maxp" @click="goto(page + 3)">{{page + 3}}</li>
-      <li v-if="page + 4 < maxp" class="jump"><i class="bt-icon">&#xe60f;</i></li>
+      <li v-if="page + 4 < maxp" class="bt-jump"><i class="bt-icon">&#xe60f;</i></li>
       <li v-if="page !== maxp" @click="goto(maxp)">{{maxp}}</li>
 
       <li :class="nextClass" @click="next"><i class="bt-icon">&#xe61a;</i></li>
@@ -114,12 +114,12 @@ export default {
       color: @blue;
       border-color: @blue;
     }
-    &.active {
+    &.bt-active {
       color: @white;
       border-color: @blue;
       background-color: @blue;
     }
-    &.jump {
+    &.bt-jump {
       color: #ccc;
       border-color: transparent;
       &:after {

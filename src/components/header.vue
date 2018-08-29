@@ -1,18 +1,12 @@
 <template>
-  <header class="bar top-fixed" v-if="!nested">
+  <header class="bar top-fixed">
     <slot></slot>
   </header>
 </template>
 <script>
-import Env from '../utils/env';
 export default {
   props: {
     title: { type: String },
-  },
-  computed: {
-    nested: function() {
-      return Env.nested;
-    },
   },
   watch: {
     title: function(newVal, oldVal) {

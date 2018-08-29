@@ -20,10 +20,10 @@
   & + & {
     margin-left: 10px;
   }
-  &.round {
+  &.bt-round {
     border-radius: 20px;
   }
-  &.circle {
+  &.bt-circle {
     border-radius: 50%;
     padding: 12px;
   }
@@ -32,7 +32,7 @@
     cursor: not-allowed;
     pointer-events: none;
   }
-  &.default {
+  &.bt-default {
     color: @buttonDefaultFontColor;
     background-color: @buttonDefaultBg;
     border-color: @buttonDefaultBorderColor;
@@ -50,7 +50,7 @@
       background-color: @buttonDefaultDisabledBg;
     }
   }
-  &.primary {
+  &.bt-primary {
     color: @white;
     background-color: @buttonPrimaryBg;
     &:hover {
@@ -64,7 +64,7 @@
       opacity: 0.4;
     }
   }
-  &.success {
+  &.bt-success {
     color: @white;
     background-color: @buttonSuccessBg;
     &:hover {
@@ -78,7 +78,7 @@
       opacity: 0.4;
     }
   }
-  &.warning {
+  &.bt-warning {
     color: @white;
     background-color: @buttonWarningBg;
     &:hover {
@@ -92,7 +92,7 @@
       opacity: 0.4;
     }
   }
-  &.driving {
+  &.bt-driving {
     color: @white;
     background-color: @buttonDrivingBg;
     &:hover {
@@ -106,7 +106,7 @@
       opacity: 0.4;
     }
   }
-  &.guiding {
+  &.bt-guiding {
     color: @white;
     background-color: @buttonGuidingBg;
     &:hover {
@@ -120,7 +120,7 @@
       opacity: 0.4;
     }
   }
-  &[class*='plain-'] {
+  &[class*='bt-plain-'] {
     background-color: transparent;
     &.disabled,
     &[disabled] {
@@ -128,7 +128,7 @@
       border-color: @buttonDefaultDisabledFontColor;
     }
   }
-  &.plain-default {
+  &.bt-plain-default {
     color: @buttonDefaultFontColor;
     border-color: @buttonDefaultBorderColor;
     &:hover,
@@ -140,7 +140,7 @@
       border-color: @buttonDefaultActiveBorderColor;
     }
   }
-  &.plain-primary {
+  &.bt-plain-primary {
     color: @blue;
     border-color: lighten(@blue, 20%);
     &:hover {
@@ -151,7 +151,7 @@
       background-color: @buttonPrimaryActiveBg;
     }
   }
-  &.plain-success {
+  &.bt-plain-success {
     color: @green;
     border-color: lighten(@green, 20%);
     &:hover {
@@ -162,7 +162,7 @@
       background-color: @buttonSuccessActiveBg;
     }
   }
-  &.plain-warning {
+  &.bt-plain-warning {
     color: @red;
     border-color: lighten(@red, 20%);
     &:hover {
@@ -173,7 +173,7 @@
       background-color: @buttonWarningActiveBg;
     }
   }
-  &.plain-driving {
+  &.bt-plain-driving {
     color: @orange;
     border-color: lighten(@orange, 20%);
     &:hover {
@@ -184,7 +184,7 @@
       background-color: @buttonDrivingActiveBg;
     }
   }
-  &.plain-guiding {
+  &.bt-plain-guiding {
     color: @yellow;
     border-color: lighten(@yellow, 20%);
     &:hover {
@@ -195,86 +195,71 @@
       background-color: @buttonGuidingActiveBg;
     }
   }
-
-  .bt-icon + span,
-  span + .bt-icon {
+  // 兼容左右ICON间距
+  span + .bt-icon,
+  .bt-icon + span {
     margin-left: 5px;
   }
   // 加载中 灰图
-  .loading {
-    animation: ex-kf-rotate 2s linear infinite;
+  .bt-loading {
+    animation: bt-kf-rotate 2s linear infinite;
   }
   // 小按钮
-  &.sm {
+  &.bt-sm {
     width: auto;
     padding: 0 @buttonSmallGap;
     line-height: @buttonSmallHeight;
     font-size: @buttonSmallFontSize;
   }
   // 特小按钮
-  &.xs {
+  &.bt-xs {
     width: auto;
     padding: 0 @buttonTinyGap;
     line-height: @buttonTinyHeight;
     font-size: @buttonTinyFontSize;
   }
   // 直角按钮
-  &.square {
+  &.bt-square {
     border-radius: 0;
     &:after {
       border-radius: 0;
     }
   }
   // 无底色按钮
-  &.literal {
+  &.bt-literal {
+    color: @blue;
     background-color: transparent;
-    &:after {
-      content: none;
+    &:hover {
+      color: fade(@blue, 90%);
+    }
+    &:active {
+      color: darken(@blue, 10%);
     }
   }
 }
 
-.button-group {
-  .setFlex();
-  > .button {
-    display: block;
-    flex: 1;
-  }
-  > .button + .button {
-    margin-top: 0 !important;
-    margin-left: @buttonGroupGap;
+// 按钮组合
+.bt-button-group {
+  > .bt-button {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    & + .bt-button {
+      margin-left: 1px !important;
+    }
   }
   &.compact {
-    > .button + .button {
-      margin-left: -1px;
+    > .bt-button + .bt-button {
+      margin-left: -1px !important;
     }
-    // 非首个按钮左边圆角
-    > .button:not(.square):not(:first-child) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    > .button:not(.square):not(:first-child):after {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    // 非末尾按钮右边圆角
-    > .button:not(.square):not(:last-child) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    > .button:not(.square):not(:last-child):after {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    // 当按钮组嵌入有border的容器时，取消边框，新增分割线。例如 list > item, modal等
-    &.nesting > .button {
-      &:after {
-        content: none;
-      }
-      & + .button {
-        margin-left: 0;
-        .hairline(0, 0, 0, 1px);
-      }
-    }
+  }
+  // 非首个按钮左边圆角
+  > .bt-button:not(.bt-square):not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  // 非末尾按钮右边圆角
+  > .bt-button:not(.bt-square):not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
