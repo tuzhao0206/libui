@@ -9,6 +9,7 @@ import 'core-js/es7/string';
 import 'core-js/es7/promise';
 
 // import business
+import './less/index.less';
 import './utils/axios';
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';

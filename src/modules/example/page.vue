@@ -1,25 +1,23 @@
 <template>
   <section>
-    <bt-space space="80px 25px">
-      <bt-page :total="200" :page="page" :size="10" @change="next" />
-    </bt-space>
     <bt-space space="80px 25px" class="text-center">
-      <bt-page :total="200" :page="page" :size="10" @change="next" />
-    </bt-space>
-    <bt-space space="80px 25px" class="text-right">
-      <bt-page :total="200" :page="page" :size="10" @change="next" />
+      <bt-page :total="total" @change="turnPage" />
     </bt-space>
   </section>
 </template>
 <script>
 export default {
   data() {
-    return { page: 1 };
+    return {
+      total: 111,
+      size: 10,
+    };
   },
   methods: {
-    next(page) {
-      this.page = page;
-      console.log(page);
+    turnPage(page) {
+      // setTimeout(() => {
+      //   this.total = Math.floor(100 * Math.random());
+      // }, 300);
     },
   },
 };

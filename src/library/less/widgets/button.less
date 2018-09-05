@@ -1,4 +1,3 @@
-@import '../base/fn';
 .bt-button {
   position: relative;
   display: inline-block;
@@ -6,7 +5,7 @@
   cursor: pointer;
   margin: 0;
   outline: 0;
-  padding: 12px 20px;
+  padding: @buttonPadding;
   transition: 0.1s;
   line-height: 1;
   text-align: center;
@@ -204,28 +203,25 @@
   .bt-loading {
     animation: bt-kf-rotate 2s linear infinite;
   }
-  // 小按钮
-  &.bt-sm {
-    width: auto;
-    padding: 0 @buttonSmallGap;
-    line-height: @buttonSmallHeight;
-    font-size: @buttonSmallFontSize;
+  // 中等按钮
+  &.bt-button-md {
+    font-size: @buttonMDFontSize;
+    padding: @buttonMDPadding;
+    border-radius: @buttonMDBorderRadius;
+  }
+  // 小型按钮
+  &.bt-button-sm {
+    padding: @buttonSMPadding;
+    font-size: @buttonSMFontSize;
+    border-radius: @buttonSMBorderRadius;
   }
   // 特小按钮
-  &.bt-xs {
-    width: auto;
-    padding: 0 @buttonTinyGap;
-    line-height: @buttonTinyHeight;
-    font-size: @buttonTinyFontSize;
+  &.bt-button-xs {
+    padding: @buttonXSPadding;
+    font-size: @buttonXSFontSize;
+    border-radius: @buttonXSBorderRadius;
   }
-  // 直角按钮
-  &.bt-square {
-    border-radius: 0;
-    &:after {
-      border-radius: 0;
-    }
-  }
-  // 无底色按钮
+  // 文本按钮
   &.bt-literal {
     color: @blue;
     background-color: transparent;
@@ -247,7 +243,7 @@
       margin-left: 1px !important;
     }
   }
-  &.compact {
+  &.bt-compact {
     > .bt-button + .bt-button {
       margin-left: -1px !important;
     }
