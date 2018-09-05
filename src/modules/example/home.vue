@@ -9,6 +9,10 @@
         <div class="text">翻页</div>
         <i class="bt-icon">&#xe61a;</i>
       </router-link>
+      <router-link class="item" :to="$prelang('example/modal')">
+        <div class="text">弹窗</div>
+        <i class="bt-icon">&#xe61a;</i>
+      </router-link>
     </div>
   </section>
 </template>

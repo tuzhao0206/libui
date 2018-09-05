@@ -3,5 +3,7 @@ import Button from './components/button';
 import ButtonGroup from './components/button/group';
 import Space from './components/space';
 import Page from './components/page';
+import Masklayer from './components/masklayer';
+import Modal from './components/modal';
 
-export { Button, ButtonGroup, Space, Page };
+export { Button, ButtonGroup, Space, Page, Masklayer, Modal };
