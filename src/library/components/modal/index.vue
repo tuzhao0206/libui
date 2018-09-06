@@ -9,17 +9,18 @@
             <bt-button v-for="(item, idx) in buttons" :key="idx" v-bind="buttonConfig(item)" @click="item.onClick(item)">{{item.text}}</bt-button>
           </footer>
         </slot>
+        <i class="bt-icon close" @click="close" v-if="close">&#xe61f;</i>
       </div>
     </bt-masklayer>
   </transition>
 </template>
-
 <script>
 export default {
   props: {
     show: { type: Boolean, default: false },
     title: { type: String },
     message: { type: String },
+    close: { type: Function },
     dismiss: { type: Function, default: n => n },
     buttons: { type: Array, default: () => [] },
   },
@@ -37,3 +38,16 @@ export default {
   },
 };
 </script>
+<style lang="less" scoped>
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  line-height: 18px;
+  cursor: pointer;
+  color: #999;
+  &:hover {
+    color: #000;
+  }
+}
+</style>

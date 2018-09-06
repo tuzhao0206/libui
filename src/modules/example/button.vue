@@ -158,8 +158,10 @@
   </section>
 </template>
 <style lang="less" scoped>
-.bt-button {
-  margin: 5px;
+.bt-space {
+  .bt-button {
+    margin: 5px;
+  }
 }
 // 手机预览居中
 @media (max-width: 600px) {
