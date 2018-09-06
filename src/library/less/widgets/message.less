@@ -1,0 +1,53 @@
+.bt-message {
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translate(-50%, 0);
+  background: #fff;
+  font-size: 14px;
+  min-width: 300px;
+  border-radius: 2px;
+  transition: opacity 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  line-height: 1;
+  .bt-icon {
+    display: inline-block;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    &.message {
+      color: #fff;
+      background-color: @blue;
+    }
+    &.success {
+      color: #fff;
+      -webkit-text-stroke: 1px #fff;
+      background-color: @green;
+    }
+    &.warning {
+      color: #fff;
+      background-color: @orange;
+    }
+    &.failure {
+      color: #fff;
+      -webkit-text-stroke: 1px #fff;
+      background-color: @red;
+    }
+  }
+  & > .text {
+    display: inline-block;
+    flex: 1;
+    padding: 10px 15px;
+    color: #888;
+  }
+
+  &.bt-widget-enter,
+  &.bt-widget-leave-active {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+}

@@ -13,6 +13,10 @@
         <div class="text">弹窗</div>
         <i class="bt-icon">&#xe61a;</i>
       </router-link>
+      <router-link class="item" :to="$prelang('example/message')">
+        <div class="text">提示</div>
+        <i class="bt-icon">&#xe61a;</i>
+      </router-link>
     </div>
   </section>
 </template>

@@ -40,7 +40,7 @@
     <bt-modal :show="type==='modal4'" :close="hideModal" :dismiss="hideModal">
       <h3 class="bt-title">关闭按钮</h3>
       <div class="bt-content">
-        <p>不推荐使用关闭按钮，而是使用点击空白方式关闭；</p>
+        <p>不推荐使用关闭按钮，而是使用点击取消按钮或空白来关闭；</p>
         <p class="text-driving">移动端的交互也培养了取消按钮关闭弹窗的习惯；</p>
         <p>因为关闭按钮和取消按钮有点重叠，而点击空白关闭也已经是一个约定俗成的方案</p>
       </div>

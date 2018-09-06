@@ -5,5 +5,6 @@ import Space from './components/space';
 import Page from './components/page';
 import Masklayer from './components/masklayer';
 import Modal from './components/modal';
+import Message from './components/message';
 
-export { Button, ButtonGroup, Space, Page, Masklayer, Modal };
+export { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message };
