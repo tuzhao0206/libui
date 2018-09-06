@@ -2,7 +2,7 @@
   <section>
     <bt-space space="25px">
       <bt-button class="bt-warning" @click="openModal('modal1')">标准调用</bt-button>
-      <bt-button class="bt-driving" @click="openModal('modal2')">没有按钮</bt-button>
+      <bt-button class="bt-driving" @click="openModal('modal2')">没有标题</bt-button>
       <bt-button class="bt-primary" @click="openModal('modal3')">点击空白</bt-button>
       <bt-button class="bt-success" @click="configModal">配置弹窗</bt-button>
     </bt-space>
@@ -58,15 +58,16 @@ export default {
     },
     mockRequest() {
       this.loading = true;
-      setTimeout(() => {
-        this.hideModal();
-      }, 1500);
+      setTimeout(this.hideModal, 1500);
     },
     configModal() {
       this.modal = {
         show: true,
         title: '配置弹窗',
-        message: '弹窗也可以通过配置参数来设置',
+        message: '弹窗也可以通过配置参数来设置。<br />有时，在程序内部希望通过代码配置调用时会很方便。',
+        dismiss: () => {
+          this.modal.show = false;
+        },
         buttons: [
           {
             text: '取消',
@@ -77,12 +78,15 @@ export default {
           },
           {
             text: '删除',
+            icon: '&#xe629;',
             class: 'bt-warning',
+            loading: false,
             onClick: button => {
-              console.log(button);
               button.loading = true;
+              // 如果初始设置不包含loading,这里就需要通过$set赋值 不然双向绑定不会生效
+              // this.$set(button, 'loading', true);
               setTimeout(() => {
-                // this.modal.show = false;
+                this.modal.show = false;
               }, 1500);
             },
           },

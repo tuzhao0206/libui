@@ -6,7 +6,7 @@
           <h3 class="bt-title" v-if="title" v-html="title" />
           <div class="bt-content" v-html="message" />
           <footer class="bt-footer" v-if="buttons.length > 0">
-            <bt-button v-for="(item, idx) in buttons" :key="idx" v-bind="item" @click="item.onClick(item)" v-html="item.text" />
+            <bt-button v-for="(item, idx) in buttons" :key="idx" v-bind="buttonConfig(item)" @click="item.onClick(item)">{{item.text}}</bt-button>
           </footer>
         </slot>
       </div>
@@ -23,21 +23,16 @@ export default {
     dismiss: { type: Function, default: n => n },
     buttons: { type: Array, default: () => [] },
   },
-  watch: {
-    buttons() {
-      console.log(this.buttons);
-    },
-  },
   methods: {
-    // 过滤button的配置项
-    refactorButton(params) {
-      const values = {};
-      Object.keys(params).forEach(key => {
+    // 过滤button的属性
+    buttonConfig(config) {
+      const options = {};
+      Object.keys(config).forEach(key => {
         if (key !== 'onClick' && key !== 'text') {
-          values[key] = params[key];
+          options[key] = config[key];
         }
       });
-      return values;
+      return options;
     },
   },
 };
