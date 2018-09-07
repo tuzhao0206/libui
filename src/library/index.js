@@ -7,4 +7,18 @@ import Masklayer from './components/masklayer';
 import Modal from './components/modal';
 import Message, { $message } from './components/message/index.js';
 
-export { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message, $message };
+const library = { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message };
+
+// AbCdEf => ab-cd-ef
+const kebabCase = str => str.replace(/([A-Z])/g, s => '-' + s.toLowerCase()).replace(/^-/, '');
+
+function install(Vue, options) {
+  // 自动注册
+  Object.keys(library).forEach(name => {
+    Vue.component(`bt-${kebabCase(name)}`, library[name]);
+  });
+
+  Vue.prototype.$message = $message;
+}
+
+export default { install };

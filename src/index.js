@@ -16,12 +16,13 @@ import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
 import store from './ducks';
 import { routes } from './schema';
-import * as library from './library';
+import BtUI from './library';
 import * as components from './components';
 import Filters from './utils/filters';
 
 Vue.use(VueI18n);
 Vue.use(VueRouter);
+Vue.use(BtUI);
 
 // 工具方法
 // AbCdEf => ab-cd-ef
@@ -30,15 +31,6 @@ const kebabCase = str => str.replace(/([A-Z])/g, s => '-' + s.toLowerCase()).rep
 // 自动注册
 Object.keys(components).forEach(name => {
   Vue.component(`ex-${kebabCase(name)}`, components[name]);
-});
-
-// 自动注册
-Object.keys(library).forEach(name => {
-  if (name.startsWith('$')) {
-    Vue.prototype.name = library[name];
-  } else {
-    Vue.component(`bt-${kebabCase(name)}`, library[name]);
-  }
 });
 
 // 国际化

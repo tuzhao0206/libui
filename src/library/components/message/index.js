@@ -4,7 +4,7 @@ import IMessageComponent from './imessage.vue';
 
 const IMessage = Vue.extend(IMessageComponent);
 
-Vue.prototype.$message = function(options = {}) {
+function $message(options = {}) {
   if (typeof options === 'string') {
     options = { message: options };
   }
@@ -12,6 +12,8 @@ Vue.prototype.$message = function(options = {}) {
   document.body.appendChild(imessage.$el);
   imessage.show = true;
   return imessage;
-};
+}
 
 export default Message;
+
+export { $message };
