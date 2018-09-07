@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <bt-ref-message :show="show" :type="type" :message="message" :close="handleClose" />
-  </div>
+  <section>
+    <bt-message :show="show" :type="type" :message="message" :close="handleClose" />
+  </section>
 </template>
 <script>
-import Message from './index.vue';
 export default {
-  components: {
-    'bt-ref-message': Message,
-  },
   data() {
     return {
       show: false,
