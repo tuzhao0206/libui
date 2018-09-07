@@ -12,10 +12,10 @@
 
   > .bt-title {
     padding: 30px 30px 0;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1;
     font-weight: 400;
-    -webkit-text-stroke: 0.2px;
+    -webkit-text-stroke: 0.5px;
     + .bt-content {
       padding-top: 15px;
     }
@@ -30,6 +30,18 @@
     text-align: right;
     .bt-button {
       min-width: 130px;
+    }
+  }
+
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    line-height: 18px;
+    cursor: pointer;
+    color: #999;
+    &:hover {
+      color: #333;
     }
   }
 }

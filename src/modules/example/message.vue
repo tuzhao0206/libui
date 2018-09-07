@@ -7,26 +7,35 @@
       <bt-button class="bt-driving" @click="openMessage('message4')">警告提示</bt-button>
     </bt-space>
 
-    <bt-message :show="type==='message1'" message="一般提醒" />
-    <bt-message :show="type==='message2'" type="success" message="成功提示" />
-    <bt-message :show="type==='message3'" type="failure" message="失败提示" />
-    <bt-message :show="type==='message4'" type="warning" message="警告提示" />
+    <bt-space space="25px">
+      <bt-button class="bt-primary" @click="$message('一般提醒')">一般提醒</bt-button>
+      <bt-button class="bt-success" @click="$message({message:'成功提示', type: 'success'})">成功提示</bt-button>
+      <bt-button class="bt-warning" @click="$message({message:'失败提示', type: 'failure'})">失败提示</bt-button>
+      <bt-button class="bt-driving" @click="$message({message:'警告提示', type: 'warning', close:()=> clickClose})">警告提示</bt-button>
+    </bt-space>
+
+    <bt-message :show="type==='message1'" message="一般提醒" :close="this.closeMessage" />
+    <bt-message :show="type==='message2'" type="success" message="成功提示" :close="this.closeMessage" />
+    <bt-message :show="type==='message3'" type="failure" message="失败提示" :close="this.closeMessage" />
+    <bt-message :show="type==='message4'" type="warning" message="警告提示" :close="this.closeMessage" />
   </section>
 </template>
 <script>
 export default {
   data() {
     return {
-      type: false,
+      type: null,
     };
   },
   methods: {
     openMessage(type) {
       this.type = type;
-
-      // setTimeout(() => {
-      //   this.type = null;
-      // }, 3000);
+    },
+    closeMessage() {
+      this.type = null;
+    },
+    clickClose() {
+      console.log('CLICK CLOSE');
     },
   },
 };

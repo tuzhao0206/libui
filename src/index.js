@@ -34,7 +34,11 @@ Object.keys(components).forEach(name => {
 
 // 自动注册
 Object.keys(library).forEach(name => {
-  Vue.component(`bt-${kebabCase(name)}`, library[name]);
+  if (name.startsWith('$')) {
+    Vue.prototype.name = library[name];
+  } else {
+    Vue.component(`bt-${kebabCase(name)}`, library[name]);
+  }
 });
 
 // 国际化

@@ -6,6 +6,7 @@
   background: #fff;
   font-size: 14px;
   min-width: 300px;
+  max-width: 90%;
   border-radius: 2px;
   transition: opacity 0.3s, transform 0.3s;
   display: flex;
@@ -25,7 +26,7 @@
     }
     &.success {
       color: #fff;
-      -webkit-text-stroke: 1px #fff;
+      -webkit-text-stroke: 1px;
       background-color: @green;
     }
     &.warning {
@@ -34,7 +35,7 @@
     }
     &.failure {
       color: #fff;
-      -webkit-text-stroke: 1px #fff;
+      -webkit-text-stroke: 1px;
       background-color: @red;
     }
   }
@@ -43,6 +44,14 @@
     flex: 1;
     padding: 10px 15px;
     color: #888;
+  }
+
+  & > .close {
+    cursor: pointer;
+    color: #999;
+    &:hover {
+      color: #333;
+    }
   }
 
   &.bt-widget-enter,

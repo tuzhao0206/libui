@@ -38,16 +38,3 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
-.close {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  line-height: 18px;
-  cursor: pointer;
-  color: #999;
-  &:hover {
-    color: #000;
-  }
-}
-</style>
