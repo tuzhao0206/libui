@@ -16,13 +16,13 @@ import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
 import store from './ducks';
 import { routes } from './schema';
-import BtUI from './library';
 import * as components from './components';
 import Filters from './utils/filters';
+import BtUI from './library';
 
+Vue.use(BtUI);
 Vue.use(VueI18n);
 Vue.use(VueRouter);
-Vue.use(BtUI);
 
 // 工具方法
 // AbCdEf => ab-cd-ef
