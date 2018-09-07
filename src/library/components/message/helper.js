@@ -1,10 +1,9 @@
 import Vue from 'vue';
-import Message from './message.vue';
-import IMessageComponent from './imessage.vue';
+import Hepler from './helper.vue';
 
-const IMessage = Vue.extend(IMessageComponent);
+const IMessage = Vue.extend(Hepler);
 
-function $message(options = {}) {
+export default function(options = {}) {
   if (typeof options === 'string') {
     options = { message: options };
   }
@@ -13,7 +12,3 @@ function $message(options = {}) {
   imessage.show = true;
   return imessage;
 }
-
-export default Message;
-
-export { $message };
