@@ -1,7 +1,7 @@
 {
-  "name": "shop-mobile-web-vue",
-  "version": "1.0.0",
-  "description": "Vue Project",
+  "name": "bitmain-ui",
+  "version": "0.1.0",
+  "description": "Btimain Component based on Vue",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open",

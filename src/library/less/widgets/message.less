@@ -14,7 +14,7 @@
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
   line-height: 1;
-  .bt-icon {
+  span {
     display: inline-block;
     text-align: center;
     width: 40px;
@@ -38,12 +38,19 @@
       -webkit-text-stroke: 1px;
       background-color: @red;
     }
+    &.loading {
+      color: #fff;
+      background-color: @yellow;
+      .bt-icon {
+        animation: bt-kf-rotate 2s linear infinite;
+      }
+    }
   }
+
   & > .text {
     display: inline-block;
     flex: 1;
     padding: 10px 15px;
-    color: #888;
   }
 
   & > .close {
