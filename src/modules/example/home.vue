@@ -1,25 +1,43 @@
 <template>
   <section>
     <div class="list">
-      <router-link class="item" :to="$prelang('example/button')">
-        <div class="text">按钮</div>
-        <i class="bt-icon">&#xe61a;</i>
-      </router-link>
-      <router-link class="item" :to="$prelang('example/page')">
-        <div class="text">翻页</div>
-        <i class="bt-icon">&#xe61a;</i>
-      </router-link>
-      <router-link class="item" :to="$prelang('example/modal')">
-        <div class="text">弹窗</div>
-        <i class="bt-icon">&#xe61a;</i>
-      </router-link>
-      <router-link class="item" :to="$prelang('example/message')">
-        <div class="text">提示</div>
+      <router-link v-for='(data,index) in homeObj' :key="index" class="item" :to="$prelang(data.link)">
+        <div class="text">{{data.name}}</div>
         <i class="bt-icon">&#xe61a;</i>
       </router-link>
     </div>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      homeObj: [
+        {
+          link: 'example/button',
+          name: '按钮',
+        },
+        {
+          link: 'example/page',
+          name: '翻页',
+        },
+        {
+          link: 'example/modal',
+          name: '弹窗',
+        },
+        {
+          link: 'example/message',
+          name: '提示',
+        },
+        {
+          link: 'example/stepper',
+          name: '步进器',
+        },
+      ],
+    };
+  },
+};
+</script>
 <style lang="less" scoped>
 .list {
   display: block;

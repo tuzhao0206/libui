@@ -4,7 +4,9 @@
       <span :class="type" v-if="icon">
         <i class="bt-icon" v-html="icon" />
       </span>
+
       <div class="text" v-html="message"></div>
+
       <span class="close" v-if="close" @click="close">
         <i class="bt-icon">&#xe61f;</i>
       </span>

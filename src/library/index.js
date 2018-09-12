@@ -6,9 +6,10 @@ import Page from './components/page';
 import Masklayer from './components/masklayer';
 import Modal from './components/modal';
 import Message from './components/message';
+import Stepper from './components/stepper';
 import $message from './components/message/helper';
 
-const library = { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message };
+const library = { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message, Stepper };
 
 // AbCdEf => ab-cd-ef
 const kebabCase = str => str.replace(/([A-Z])/g, s => '-' + s.toLowerCase()).replace(/^-/, '');
