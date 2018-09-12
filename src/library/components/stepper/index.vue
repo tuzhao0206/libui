@@ -1,28 +1,72 @@
 <template>
   <div class="stepper" :class="{'small': small}">
-    <button :class="{disable: currentValue == min || disabled}" @click="decrease()"> - </button>
-    <input v-if="!disabled" type="number" @input="onInput" @blur='onBlur' :value="currentValue"/>
-    <input v-if="disabled" disabled="disabled" type="number" @input="onInput" :value="currentValue"/>
-    <button :class="{disable: currentValue == max || disabled}" @click="increase()"> + </button>
+    <button
+      :class="{disable: currentValue == min || disabled}"
+      @click="decrease()">
+      <i class="bt-icon">&#xe62d;</i>
+    </button>
+
+    <input
+      v-if="!disabled"
+      @input="onInput"
+      @blur='onBlur'
+      :value="currentValue"/>
+
+    <input
+      v-if="disabled"
+      disabled="disabled"
+      @input="onInput"
+      :value="currentValue"/>
+
+    <button
+      :class="{disable: currentValue == max || disabled}"
+      @click="increase()">
+      <i class="bt-icon">&#xe62c;</i>
+    </button>
   </div>
 </template>
 <script>
 export default {
   props: {
-    small: { type: Boolean, default: false },
-    value: { type: Number, default: null },
-    min: { type: Number, default: null },
-    max: { type: Number, default: null },
-    step: { type: Number, default: null },
-    disabled: { type: Boolean, default: false },
-    enableZero: { type: Boolean, default: false },
-    currentLang: localStorage.getItem('lang'),
+    small: {
+      type: Boolean,
+      default: false,
+    },
+    value: {
+      type: Number,
+      default: null,
+    },
+    min: {
+      type: Number,
+      default: null,
+    },
+    max: {
+      type: Number,
+      default: null,
+    },
+    step: {
+      type: Number,
+      default: null,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    enableZero: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       currentValue: this.value,
       oldValue: 0,
     };
+  },
+  computed: {
+    currentLang: function() {
+      return this.$store.state.locale;
+    },
   },
   watch: {
     value: function(val) {
@@ -68,11 +112,11 @@ export default {
       this.currentValue = Number(e.target.value);
       if (this.currentValue == 0 || this.currentValue == '') {
         if (this.currentLang == 'zh') {
-          this.$dialog.alert({
+          this.$message({
             message: '请输入合适的数字。',
           });
         } else {
-          this.$dialog.alert({
+          this.$message({
             message: 'Please input digit.',
           });
         }
@@ -86,6 +130,9 @@ export default {
 };
 </script>
 <style scoped lang="less" type="text/less">
+* {
+  outline: none;
+}
 .stepper {
   display: flex;
   align-items: center;
