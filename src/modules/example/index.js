@@ -6,10 +6,12 @@ const Page = () => import(/* webpackChunkName: 'example' */ './page');
 const Modal = () => import(/* webpackChunkName: 'example' */ './modal');
 const Message = () => import(/* webpackChunkName: 'example' */ './message');
 const Raido = () => import(/* webpackChunkName: 'example' */ './radio');
+const Stepper = () => import('./stepper');
 
 const routes = [
   {
     path: 'example',
+    alias: '/',
     component: Panel,
     children: [
       { path: '', component: Home },
@@ -18,6 +20,7 @@ const routes = [
       { path: 'modal', component: Modal },
       { path: 'message', component: Message },
       { path: 'radio', component: Raido },
+      { path: 'stepper', component: Stepper },
     ],
   },
 ];

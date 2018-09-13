@@ -2,7 +2,7 @@
   <div id="">
 
     <bt-space space="25px">
-      <h5>单选框</h5>
+      <h4>单选框</h4>
     </bt-space>
     <section>
       <bt-space space="25px">
@@ -19,10 +19,9 @@
         <bt-radio :activeValue="activeValue4" :value="3" >这是3</bt-radio>
       </bt-space>
     </section>
-    <hr>
-    
+
     <bt-space space="25px">
-      <h5>单选框组</h5>
+      <h4>单选框组</h4>
     </bt-space>
     <section>
       <bt-space space="25px">
@@ -43,10 +42,9 @@
         </bt-radio-group>
       </bt-space>
     </section>
-    <hr>
 
     <bt-space space="25px">
-      <h5>按钮样式组</h5>
+      <h4>按钮样式组</h4>
     </bt-space>
     <section>
       <bt-space space="25px">

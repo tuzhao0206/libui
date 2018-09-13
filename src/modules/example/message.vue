@@ -9,7 +9,7 @@
     </bt-space>
 
     <bt-space space="25px">
-      <bt-button class="bt-primary" @click="$message('一般提醒')">自动关闭</bt-button>
+      <bt-button class="bt-primary" @click="$message('一般提醒121212')">自动关闭</bt-button>
       <bt-button class="bt-success" @click="$message({message:'成功提示', type: 'success'})">自动关闭</bt-button>
       <bt-button class="bt-warning" @click="$message({message:'失败提示', type: 'failure'})">自动关闭</bt-button>
       <bt-button class="bt-driving" @click="$message({message:'警告提示', type: 'warning'})">自动关闭</bt-button>
