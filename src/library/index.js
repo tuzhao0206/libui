@@ -7,8 +7,10 @@ import Masklayer from './components/masklayer';
 import Modal from './components/modal';
 import Message from './components/message';
 import $message from './components/message/helper';
+import Radio from './components/radio';
+import RadioGroup from './components/radio/radio-group.vue';
 
-const library = { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message };
+const library = { Button, ButtonGroup, Space, Page, Masklayer, Modal, Message, Radio, RadioGroup };
 
 // AbCdEf => ab-cd-ef
 const kebabCase = str => str.replace(/([A-Z])/g, s => '-' + s.toLowerCase()).replace(/^-/, '');

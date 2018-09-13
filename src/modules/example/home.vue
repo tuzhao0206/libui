@@ -17,6 +17,10 @@
         <div class="text">提示</div>
         <i class="bt-icon">&#xe61a;</i>
       </router-link>
+      <router-link class="item" :to="$prelang('example/radio')">
+        <div class="text">单选框</div>
+        <i class="bt-icon">&#xe61a;</i>
+      </router-link>
     </div>
   </section>
 </template>
