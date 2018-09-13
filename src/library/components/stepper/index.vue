@@ -9,12 +9,14 @@
     <input
       v-if="!disabled"
       @input="onInput"
+      type="number"
       @blur='onBlur'
       :value="currentValue"/>
 
     <input
       v-if="disabled"
       disabled="disabled"
+      type="number"
       @input="onInput"
       :value="currentValue"/>
 
@@ -104,6 +106,11 @@ export default {
       }
       if (this.currentValue > this.max) {
         this.currentValue = this.max;
+        this.$emit('input', this.currentValue);
+        this.$emit('change');
+      }
+      if (this.currentValue < this.min) {
+        this.currentValue = this.min;
         this.$emit('input', this.currentValue);
         this.$emit('change');
       }
@@ -197,5 +204,13 @@ export default {
 
     font-size: 13px;
   }
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
 }
 </style>
