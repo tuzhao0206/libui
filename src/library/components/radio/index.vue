@@ -6,7 +6,7 @@
 */
 <template>
 
-  <label class="bt-radio"  @click="setActiveValue"
+  <label class="bt-radio"  @click="beforeChange"
     :class="[{
         'is-checked': label === myActiveValue,
         'is-disabled': isDisabled,
@@ -80,6 +80,8 @@ export default {
     },
   },
 
+  watch: {},
+
   created() {
     this.findParent('BtRadioGroup');
   },
@@ -87,15 +89,15 @@ export default {
   mounted() {},
 
   methods: {
-    setActiveValue() {
+    beforeChange() {
       if (this.isDisabled) {
         return;
       }
       if (this.parent) {
-        this.parent.$emit('setActive', this.label);
+        this.parent.$emit('beforeChange', this.label);
         this.parent.$emit('input', this.label);
       } else {
-        this.$emit('setActive', this.label);
+        this.$emit('beforeChange', this.label);
         this.$emit('input', this.label);
       }
     },

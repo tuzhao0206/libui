@@ -5,10 +5,6 @@
         <div class="text">{{data.name}}</div>
         <i class="bt-icon">&#xe61a;</i>
       </router-link>
-      <router-link class="item" :to="$prelang('example/radio')">
-        <div class="text">单选框</div>
-        <i class="bt-icon">&#xe61a;</i>
-      </router-link>
     </div>
   </section>
 </template>
@@ -36,6 +32,14 @@ export default {
         {
           link: 'example/stepper',
           name: '步进器',
+        },
+        {
+          link: 'example/raido',
+          name: '单选框',
+        },
+        {
+          link: 'example/checkbox',
+          name: '复选框',
         },
       ],
     };

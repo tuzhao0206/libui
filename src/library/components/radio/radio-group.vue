@@ -8,7 +8,9 @@
 <script>
 export default {
   name: 'BtRadioGroup',
+
   components: {},
+
   props: {
     value: {},
     disabled: {
@@ -27,12 +29,18 @@ export default {
       default: 'sm', // xs,sm,md,lg
     },
   },
+
   data() {
     return {};
   },
 
+  watch: {
+    value(value) {
+      this.$emit('change', value);
+    },
+  },
   computed: {},
-  watch: {},
+
   mounted() {},
 
   methods: {},
