@@ -6,17 +6,17 @@
     </bt-space>
     <section>
       <bt-space space="25px">
-        <bt-radio :activeValue="activeValue1" :value="1" @setActive="setActive1">这是1</bt-radio>
-        <bt-radio :activeValue="activeValue1" :value="2" @setActive="setActive1">这是2</bt-radio>
-        <bt-radio :activeValue="activeValue1" :value="3" @setActive="setActive1">这是3</bt-radio>
+        <bt-radio :value="activeValue1" :label="1" @setActive="setActive1">这是1</bt-radio>
+        <bt-radio :value="activeValue1" :label="2" @setActive="setActive1">这是2</bt-radio>
+        <bt-radio :value="activeValue1" :label="3" @setActive="setActive1">这是3</bt-radio>
       </bt-space>
     </section>
 
     <section>
       <bt-space space="25px">
-        <bt-radio :activeValue="activeValue4" :value="1" >这是1</bt-radio>
-        <bt-radio :activeValue="activeValue4" :value="2" disabled>这是2</bt-radio>
-        <bt-radio :activeValue="activeValue4" :value="3" >这是3</bt-radio>
+        <bt-radio :value="activeValue4" :label="1" >这是1</bt-radio>
+        <bt-radio :value="activeValue4" :label="2" disabled>这是2</bt-radio>
+        <bt-radio :value="activeValue4" :label="3" >这是3</bt-radio>
       </bt-space>
     </section>
 
@@ -27,10 +27,10 @@
     <section>
       <bt-space space="25px">
         <small>shape="circle"</small>
-        <bt-radio-group :activeValue="activeValue2" @setActive="setActive2" shape="circle">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue2" @setActive="setActive2" shape="circle">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -38,10 +38,10 @@
     <section>
       <bt-space space="25px">
         <small>shape="checkbox"</small>
-        <bt-radio-group :activeValue="activeValue2" @setActive="setActive2" shape="checkbox">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue2" @setActive="setActive2" shape="checkbox">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -49,10 +49,10 @@
     <section >
       <bt-space space="25px">
         <small>vertical垂直摆列</small>
-        <bt-radio-group :activeValue="activeValue3" disabled shape="checkbox" vertical>
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue3" disabled shape="checkbox" vertical>
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -63,10 +63,10 @@
     <section>
       <bt-space space="25px">
         <small>xs 特小按钮</small>
-        <bt-radio-group :activeValue="activeValue5"  @setActive="setActive5" shape="button" size="xs">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue5"  @setActive="setActive5" shape="button" size="xs">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -74,10 +74,10 @@
     <section>
       <bt-space space="25px">
         <small>sm 小按钮</small>
-        <bt-radio-group :activeValue="activeValue6" @setActive="setActive6" shape="button" size="sm">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" disabled>这是2(disabled+checked)</bt-radio>
-          <bt-radio :value="3" disabled>这是3(disabled)</bt-radio>
+        <bt-radio-group :value="activeValue6" @setActive="setActive6" shape="button" size="sm">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" disabled>这是2(disabled+checked)</bt-radio>
+          <bt-radio :label="3" disabled>这是3(disabled)</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -85,10 +85,10 @@
     <section>
       <bt-space space="25px">
         <small>md 中等按钮</small>
-        <bt-radio-group :activeValue="activeValue7"  @setActive="setActive7" shape="button" size="md">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue7"  @setActive="setActive7" shape="button" size="md">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -96,10 +96,33 @@
     <section>
       <bt-space space="25px">
         <small>默认按钮</small>
-        <bt-radio-group :activeValue="activeValue8"  @setActive="setActive8" shape="button">
-          <bt-radio :value="1" >这是1</bt-radio>
-          <bt-radio :value="2" >这是2</bt-radio>
-          <bt-radio :value="3" >这是3</bt-radio>
+        <bt-radio-group :value="activeValue8"  @setActive="setActive8" shape="button">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
+        </bt-radio-group>
+      </bt-space>
+    </section>
+
+    <bt-space space="25px">
+      <h4>使用v-model</h4>
+    </bt-space>
+    <section>
+      <bt-space space="25px">
+        <bt-radio-group v-model="activeValue9">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
+        </bt-radio-group>
+      </bt-space>
+    </section>
+
+    <section>
+      <bt-space space="25px">
+        <bt-radio-group v-model="activeValue9" shape="button">
+          <bt-radio :label="1" >这是1</bt-radio>
+          <bt-radio :label="2" >这是2</bt-radio>
+          <bt-radio :label="3" >这是3</bt-radio>
         </bt-radio-group>
       </bt-space>
     </section>
@@ -120,6 +143,7 @@ export default {
       activeValue6: 2,
       activeValue7: 2,
       activeValue8: 2,
+      activeValue9: 1,
     };
   },
 

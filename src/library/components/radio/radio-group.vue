@@ -10,7 +10,7 @@ export default {
   name: 'BtRadioGroup',
   components: {},
   props: {
-    activeValue: {},
+    value: {},
     disabled: {
       type: Boolean,
     },

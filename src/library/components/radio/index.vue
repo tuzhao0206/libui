@@ -8,7 +8,7 @@
 
   <label class="bt-radio"  @click="setActiveValue"
     :class="[{
-        'is-checked': value === myActiveValue,
+        'is-checked': label === myActiveValue,
         'is-disabled': isDisabled,
         'is-block': isVertical,
         'button': myShape === 'button'
@@ -18,18 +18,12 @@
     <span class="bt-radio_input" >
       <i class="bt-radio_icon circle" v-if="myShape === 'circle'"></i>
       <i class="bt-radio_icon bt-icon checkbox " v-if="myShape === 'checkbox'"><b>&#xe620;</b></i>
-      <!-- label标签里嵌表单元素，会导致点击babel会促发表单元素 -->
-      <!-- <input 
-        type="radio"
-        :value="value"
-        class="bt-radio__original"
-      > -->
     </span>
 
     <span class="bt-radio__label" >
       <slot></slot>
-      <!-- 没有插槽，使用value属性 -->
-      <template v-if="!$slots.default">{{value}}</template>
+      <!-- 没有插槽，使用label属性 -->
+      <template v-if="!$slots.default">{{label}}</template>
     </span>
 
   </label>
@@ -45,8 +39,8 @@ export default {
   components: {},
 
   props: {
-    value: {}, // 每个单选按钮的值
-    activeValue: {}, // 选中的值
+    label: {}, // 每个单选按钮的值, 对应原生里每个radio的value
+    value: {}, // 选中的值, 照顾v-model
     disabled: {
       type: Boolean,
     },
@@ -70,7 +64,7 @@ export default {
 
   computed: {
     myActiveValue() {
-      return this.parent ? this.parent.activeValue : this.activeValue;
+      return this.parent ? this.parent.value : this.value;
     },
     isVertical() {
       return this.parent ? this.parent.vertical : this.vertical;
@@ -98,9 +92,11 @@ export default {
         return;
       }
       if (this.parent) {
-        this.parent.$emit('setActive', this.value);
+        this.parent.$emit('setActive', this.label);
+        this.parent.$emit('input', this.label);
       } else {
-        this.$emit('setActive', this.value);
+        this.$emit('setActive', this.label);
+        this.$emit('input', this.label);
       }
     },
   },
