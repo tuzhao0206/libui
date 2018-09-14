@@ -1,6 +1,6 @@
 .bt-radio {
   cursor: pointer;
-
+  line-height: 1;
   > .bt-radio_input {
     vertical-align: middle;
     > .bt-radio_icon {
@@ -40,7 +40,14 @@
     }
   }
 
+  > .bt-radio__label {
+    padding-left: 5px;
+  }
+
   &.button {
+    > .bt-radio__label {
+      padding: 0;
+    }
     display: inline-block;
     border: 1px solid @light;
     &.default {
@@ -112,7 +119,7 @@
     }
     &.button {
       color: @gray;
-      background-color: rgba(200, 200, 200, 0.4);
+      background-color: rgba(222, 222, 222, 0.4);
     }
   }
 
@@ -120,13 +127,14 @@
     .bt-radio_icon {
       background-color: @tips;
     }
+    &.button {
+      border-color: @light;
+      background-color: #d6d6d6;
+      color: #fff;
+    }
   }
 
   &.is-block {
     display: block;
-  }
-
-  .bt-radio__label {
-    padding-left: 5px;
   }
 }

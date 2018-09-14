@@ -45,22 +45,22 @@ export default {
   components: {},
 
   props: {
-    value: {},
-    activeValue: {},
+    value: {}, // 每个单选按钮的值
+    activeValue: {}, // 选中的值
     disabled: {
       type: Boolean,
     },
     shape: {
       type: String,
-      default: 'circle', // checkbox、circle
+      default: 'circle', // checkbox、circle、button
     },
     vertical: {
       type: Boolean,
-      default: false,
+      default: false, // 垂直
     },
     size: {
       type: String,
-      default: 'default', // xs,sm,md,lg,【lg，暂未开发】
+      default: 'default', // xs,sm,md,lg,【lg，暂未开发】，对shape=button有效
     },
   },
 
