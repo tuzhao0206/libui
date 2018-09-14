@@ -1,5 +1,5 @@
 <template>
-  <div class="bt-checkbox" @click="onClick"
+  <label class="bt-checkbox" @click="onClick"
     :class="[{
         'is-checked': currentValue,
         'is-disabled': isDisabled,
@@ -19,7 +19,7 @@
       <template v-if="!$slots.default">{{value}}</template>
     </span>
 
-  </div>
+  </label>
 </template>
 
 <script>
@@ -61,13 +61,14 @@ export default {
         return this.parent ? this.parent.value.indexOf(this.label) !== -1 : this.value;
       },
       set(val) {
-        // 当改变myValue的值时自动触发
+        // 当要改变currentValue的值时自动触发，不return，则顺利赋值
         if (this.parent) {
           const parentValue = this.parent.value.slice();
           if (val) {
             // 想选中
-            if (this.parent.max && parentValue > this.parent.max) {
+            if (this.parent.max && parentValue.length >= this.parent.max) {
               // 超出max
+              alert(`最多选中${this.parent.max}个`);
               return;
             }
             if (parentValue.indexOf(this.label) === -1) {
@@ -117,8 +118,10 @@ export default {
       if (this.isDisabled) {
         return;
       }
-      (this.parent || this).$emit('beforeChange', this.label);
+      (this.parent || this).$emit('beforeChange', { label: this.label, toBe: !this.currentValue });
+      // console.log('赋值前', this.currentValue);
       this.currentValue = !this.currentValue;
+      // console.log('赋值后', this.currentValue);
     },
   },
 };
