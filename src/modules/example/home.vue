@@ -34,12 +34,16 @@ export default {
           name: '步进器',
         },
         {
-          link: 'example/raido',
+          link: 'example/radio',
           name: '单选框',
         },
         {
           link: 'example/checkbox',
           name: '复选框',
+        },
+        {
+          link: 'example/switch',
+          name: 'switch开关',
         },
       ],
     };

@@ -12,6 +12,7 @@ import Radio from './components/radio';
 import RadioGroup from './components/radio/radio-group.vue';
 import Checkbox from './components/checkbox';
 import CheckboxGroup from './components/checkbox/checkbox-group.vue';
+import Switch from './components/switch';
 
 const library = {
   Button,
@@ -26,6 +27,7 @@ const library = {
   RadioGroup,
   Checkbox,
   CheckboxGroup,
+  Switch,
 };
 
 // AbCdEf => ab-cd-ef

@@ -23,7 +23,8 @@
         transform: translate(-50%, -50%) scale(0);
         transition: transform 0.15s ease-in;
       }
-      &.checkbox {
+      &.checkbox,
+      &.rectangle {
         position: relative;
         b {
           font-size: 10px;
@@ -36,6 +37,9 @@
           transform: translate(-50%, -50%) scale(0);
           transition: transform 0.15s ease-in;
         }
+      }
+      &.rectangle {
+        border-radius: 3px;
       }
     }
   }
@@ -92,7 +96,8 @@
       &.circle::after {
         transform: translate(-50%, -50%) scale(1);
       }
-      &.checkbox > b {
+      &.checkbox > b,
+      &.rectangle > b {
         transform: translate(-50%, -45%) scale(0.8);
       }
     }
@@ -113,7 +118,8 @@
       &.circle::after {
         transform: translate(-50%, -50%) scale(1);
       }
-      &.checkbox > b {
+      &.checkbox > b,
+      &.rectangle > b {
         transform: translate(-50%, -45%) scale(0.8);
       }
     }

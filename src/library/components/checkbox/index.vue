@@ -11,6 +11,7 @@
     <span class="bt-checkbox_input" >
       <i class="bt-checkbox_icon circle" v-if="myShape === 'circle'"></i>
       <i class="bt-checkbox_icon bt-icon checkbox " v-if="myShape === 'checkbox'"><b>&#xe620;</b></i>
+      <i class="bt-checkbox_icon bt-icon rectangle " v-if="myShape === 'rectangle'"><b>&#xe620;</b></i>
     </span>
 
     <span class="bt-checkbox__label" >
