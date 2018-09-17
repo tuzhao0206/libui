@@ -1,5 +1,8 @@
 <template>
   <div :class="['bt-switch', {'disabled': disabled, 'active': value}]" @click="onClick">
+    <div class="bt-icon" :class="{'loading': loading}" v-if="loading">
+      &#xe644;
+    </div>
   </div>
 </template>
 
@@ -15,6 +18,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {};
@@ -26,7 +33,7 @@ export default {
 
   methods: {
     onClick() {
-      if (!this.disabled) {
+      if (!this.disabled && !this.loading) {
         this.$emit('beforeChange', !this.value);
         this.$emit('input', !this.value);
         this.$emit('change', !this.value);

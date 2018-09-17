@@ -7,6 +7,8 @@
       <bt-switch v-model="value" @change="change"></bt-switch>
       <small>disabled</small>
       <bt-switch v-model="value" @change="change" disabled></bt-switch>
+      <small>loading + @beforeChange</small>
+      <bt-switch :value="value" @beforeChange="beforeChange1" :loading="loading"></bt-switch>
     </bt-space>
   </div>
 </template>
@@ -18,6 +20,7 @@ export default {
   data() {
     return {
       value: true,
+      loading: false,
     };
   },
 
@@ -34,6 +37,14 @@ export default {
     },
     change(val) {
       console.log(val);
+    },
+    beforeChange1(val) {
+      this.loading = true;
+      let that = this;
+      setTimeout(() => {
+        that.loading = false;
+        that.value = val;
+      }, 2000);
     },
   },
 };

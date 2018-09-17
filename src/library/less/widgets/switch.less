@@ -6,6 +6,16 @@
   position: relative;
   cursor: pointer;
   transition: background 0.3s;
+  > .loading {
+    position: absolute;
+    font-size: 12px;
+    transform: scale(0.6);
+    color: @blue;
+    animation: bt-kf-rotate 2s infinite ease-in-out;
+    left: 3px;
+    z-index: 1;
+    transition: left 0.3s;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -22,6 +32,9 @@
     background: @blue;
     &::after {
       left: 21px;
+    }
+    > .loading {
+      left: 23px;
     }
   }
   &.disabled {
