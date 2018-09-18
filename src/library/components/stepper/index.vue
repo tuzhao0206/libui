@@ -81,7 +81,7 @@ export default {
         this.currentValue = Number(this.currentValue) - this.step;
         if (this.currentValue < this.min) this.currentValue = this.min;
         this.$emit('input', this.currentValue);
-        this.$emit('change');
+        this.$emit('change', this.currentValue);
       }
       this.oldValue = this.currentValue;
     },
@@ -90,7 +90,7 @@ export default {
         this.currentValue = Number(this.currentValue) + this.step;
         if (this.currentValue > this.max) this.currentValue = this.max;
         this.$emit('input', this.currentValue);
-        this.$emit('change');
+        this.$emit('change', this.currentValue);
       }
       this.oldValue = this.currentValue;
     },
@@ -99,25 +99,25 @@ export default {
       this.$emit('input', Number(e.target.value));
       if (this.currentValue !== '') {
         if (this.currentValue !== 0 && !this.enableZero) {
-          this.$emit('change');
+          this.$emit('change', this.currentValue);
         } else if (this.enableZero) {
-          this.$emit('change');
+          this.$emit('change', this.currentValue);
         }
       }
       if (this.currentValue > this.max) {
         this.currentValue = this.max;
         this.$emit('input', this.currentValue);
-        this.$emit('change');
+        this.$emit('change', this.currentValue);
       }
       if (this.currentValue < this.min) {
         this.currentValue = this.min;
         this.$emit('input', this.currentValue);
-        this.$emit('change');
+        this.$emit('change', this.currentValue);
       }
     },
     onBlur(e) {
       this.currentValue = Number(e.target.value);
-      if (this.currentValue == 0 || this.currentValue == '') {
+      if ((this.currentValue == 0 && this.enableZero == false) || this.currentValue === '') {
         if (this.currentLang == 'zh') {
           this.$message({
             message: '请输入合适的数字。',
@@ -129,7 +129,7 @@ export default {
         }
         this.currentValue = this.oldValue;
         this.$emit('input', this.currentValue);
-        this.$emit('change');
+        this.$emit('change', this.currentValue);
       }
       this.oldValue = this.currentValue;
     },

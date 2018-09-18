@@ -4,9 +4,8 @@
     <bt-stepper
       :min="1"
       :max="90"
-      :step="1"
+      :step="2"
       :disabled="false"
-      @change="ajax()"
       :enableZero = "false"
       v-model="productCount">
     </bt-stepper>
@@ -16,17 +15,15 @@
       :max="10"
       :step="1"
       :disabled="true"
-      @change="ajax()"
       :enableZero = "false"
       v-model="productCountDis">
     </bt-stepper>
-    <p class="title">更广泛的支持</p>
+    <p class="title">对于负数的支持</p>
     <bt-stepper
-      :min="-10"
-      :max="90"
+      :min="-5"
+      :max="5"
       :step="1"
       :disabled="false"
-      @change="ajax()"
       :enableZero = "true"
       v-model="productCountZero">
     </bt-stepper>
