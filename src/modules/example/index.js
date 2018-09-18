@@ -9,6 +9,7 @@ const Raido = () => import(/* webpackChunkName: 'example' */ './radio');
 const Checkbox = () => import(/* webpackChunkName: 'example' */ './checkbox');
 const Switch = () => import(/* webpackChunkName: 'example' */ './switch');
 const Stepper = () => import('./stepper');
+const ImgLazyload = () => import('./imgLazyload');
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
       { path: 'checkbox', component: Checkbox },
       { path: 'switch', component: Switch },
       { path: 'stepper', component: Stepper },
+      { path: 'imgLazyload', component: ImgLazyload },
     ],
   },
 ];

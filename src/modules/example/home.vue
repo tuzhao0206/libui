@@ -34,6 +34,10 @@ export default {
           name: '步进器',
         },
         {
+          link: 'example/imgLazyload',
+          name: '图片懒加载',
+        },
+        {
           link: 'example/radio',
           name: '单选框',
         },

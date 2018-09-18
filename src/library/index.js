@@ -14,6 +14,8 @@ import Checkbox from './components/checkbox';
 import CheckboxGroup from './components/checkbox/checkbox-group.vue';
 import Switch from './components/switch';
 
+import ImgLazyload from './components/imgLazyload';
+
 const library = {
   Button,
   ButtonGroup,
@@ -28,6 +30,8 @@ const library = {
   Checkbox,
   CheckboxGroup,
   Switch,
+
+  ImgLazyload,
 };
 
 // AbCdEf => ab-cd-ef
