@@ -11,6 +11,11 @@ export default {
 
   components: {},
 
+  // 改写v-model里的input为change, 贴近用户行为
+  model: {
+    event: 'change',
+  },
+
   props: {
     value: {},
     disabled: {
@@ -28,17 +33,18 @@ export default {
       type: String,
       default: 'sm', // xs,sm,md,lg
     },
+    beforeChange: {
+      type: Function,
+      default: function() {
+        return true;
+      },
+    },
   },
 
   data() {
     return {};
   },
 
-  watch: {
-    value(value) {
-      this.$emit('change', value);
-    },
-  },
   computed: {},
 
   mounted() {},

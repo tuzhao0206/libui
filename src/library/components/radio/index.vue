@@ -1,12 +1,9 @@
 /** 
-* 针对业务的特殊需求，点击单选框，可能会有弹层的出现，
-* 当点击弹层里的“取消”按钮时，要取消选中状态（前一个状态是啥就是啥），
-* 然而目前大部分ui框架皆为‘点击后直接赋值’，当点击弹窗里的“取消”按钮，无法恢复之前的状态。
-* 所以此处改为，点击之后做回调，由父组件在回调函数里控制activeValue。
+* 增加change之前的拦截方法beforeChange，有props传入。
 */
 <template>
 
-  <label class="bt-radio"  @click="beforeChange"
+  <label class="bt-radio"  @click="onClick"
     :class="[{
         'is-checked': label === myActiveValue,
         'is-disabled': isDisabled,
@@ -31,12 +28,18 @@
 
 <script>
 import findParent from '../../mixins/find-parent';
+import toPromise from '../../utils/toPromise.js';
 export default {
   name: 'BtRadio',
 
   mixins: [findParent],
 
   components: {},
+
+  // 改写v-model里的input为change, 贴近用户行为
+  model: {
+    event: 'change',
+  },
 
   props: {
     label: {}, // 每个单选按钮的值, 对应原生里每个radio的value
@@ -55,6 +58,12 @@ export default {
     size: {
       type: String,
       default: 'default', // xs,sm,md,lg,【lg，暂未开发】，对shape=button有效
+    },
+    beforeChange: {
+      type: Function,
+      default: function() {
+        return true;
+      },
     },
   },
 
@@ -89,17 +98,15 @@ export default {
   mounted() {},
 
   methods: {
-    beforeChange() {
+    onClick() {
       if (this.isDisabled) {
         return;
       }
-      if (this.parent) {
-        this.parent.$emit('beforeChange', this.label);
-        this.parent.$emit('input', this.label);
-      } else {
-        this.$emit('beforeChange', this.label);
-        this.$emit('input', this.label);
-      }
+      toPromise((this.parent || this).beforeChange(this.label)).then(val => {
+        if (val) {
+          (this.parent || this).$emit('change', this.label);
+        }
+      });
     },
   },
 };

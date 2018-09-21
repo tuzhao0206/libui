@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import toPromise from '../../utils/toPromise.js';
 export default {
   components: {},
+  // 改写v-model里的input为change, 贴近用户行为
+  model: {
+    event: 'change',
+  },
   props: {
     disabled: {
       type: Boolean,
@@ -22,6 +27,12 @@ export default {
       type: Boolean,
       default: false,
     },
+    beforeChange: {
+      type: Function,
+      default: function() {
+        return true;
+      },
+    },
   },
   data() {
     return {};
@@ -33,11 +44,14 @@ export default {
 
   methods: {
     onClick() {
-      if (!this.disabled && !this.loading) {
-        this.$emit('beforeChange', !this.value);
-        this.$emit('input', !this.value);
-        this.$emit('change', !this.value);
+      if (this.disabled || this.loading) {
+        return;
       }
+      toPromise(this.beforeChange(!this.value)).then(val => {
+        if (val) {
+          this.$emit('change', !this.value);
+        }
+      });
     },
   },
 };

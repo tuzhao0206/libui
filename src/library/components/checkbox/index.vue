@@ -25,11 +25,16 @@
 
 <script>
 import findParent from '../../mixins/find-parent';
-
+import toPromise from '../../utils/toPromise.js';
 export default {
   mixins: [findParent],
 
   components: {},
+
+  // 改写v-model里的input为change, 贴近用户行为
+  model: {
+    event: 'change',
+  },
 
   props: {
     label: {}, // 每个复选按钮的值
@@ -48,6 +53,12 @@ export default {
     size: {
       type: String,
       default: 'default', // xs,sm,md,lg,【lg，暂未开发】，对shape=button有效
+    },
+    beforeChange: {
+      type: Function,
+      default: function() {
+        return true;
+      },
     },
   },
   data() {
@@ -75,18 +86,18 @@ export default {
             if (parentValue.indexOf(this.label) === -1) {
               // 没有选中过
               parentValue.push(this.label);
-              this.parent.$emit('input', parentValue);
+              this.parent.$emit('change', parentValue);
             }
           } else {
             // 取消选中
             const index = parentValue.indexOf(this.label);
             if (index !== -1) {
               parentValue.splice(index, 1);
-              this.parent.$emit('input', parentValue);
+              this.parent.$emit('change', parentValue);
             }
           }
         } else {
-          this.$emit('input', val);
+          this.$emit('change', val);
         }
       },
     },
@@ -104,11 +115,11 @@ export default {
     },
   },
 
-  watch: {
-    value(val) {
-      this.$emit('change', val);
-    },
-  },
+  // watch: {
+  //   value(val) {
+  //     this.$emit('change', val);
+  //   },
+  // },
 
   created() {
     this.findParent('BtCheckboxGroup');
@@ -119,10 +130,10 @@ export default {
       if (this.isDisabled) {
         return;
       }
-      (this.parent || this).$emit('beforeChange', { label: this.label, toBe: !this.currentValue });
-      // console.log('赋值前', this.currentValue);
-      this.currentValue = !this.currentValue;
-      // console.log('赋值后', this.currentValue);
+      toPromise((this.parent || this).beforeChange({ label: this.label, toBe: !this.currentValue })).then(val => {
+        // 触发computed的set方法
+        this.currentValue = !this.currentValue;
+      });
     },
   },
 };

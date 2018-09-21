@@ -9,6 +9,11 @@ export default {
   name: 'BtCheckboxGroup',
   components: {},
 
+  // 改写v-model里的input为change, 贴近用户行为
+  model: {
+    event: 'change',
+  },
+
   props: {
     value: Array,
     disabled: {
@@ -27,13 +32,19 @@ export default {
       default: 'default', // xs,sm,md,lg,【lg，暂未开发】，对shape=button有效
     },
     max: Number,
-  },
-
-  watch: {
-    value(val) {
-      this.$emit('change', val);
+    beforeChange: {
+      type: Function,
+      default: function() {
+        return true;
+      },
     },
   },
+
+  // watch: {
+  //   value(val) {
+  //     this.$emit('change', val);
+  //   },
+  // },
 
   data() {
     return {};
