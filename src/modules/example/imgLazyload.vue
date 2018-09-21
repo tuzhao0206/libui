@@ -44,8 +44,8 @@
     <div class="product" v-for="(product, index) in productObj" :key="index">
       <bt-img-lazyload
         :index="index"
-        :width="550"
-        :height="550"
+        :width="250"
+        :height="350"
         :size="540"
         :imgSrc="product.img"
         loadingSrc="https://shop-static-beta.bitmain.com/common/bt-pic-default.png"
@@ -103,5 +103,10 @@ p.title {
 }
 p.title:first-of-type {
   padding-top: 20px;
+}
+
+div.product {
+  display: inline-block;
+  width: 40%;
 }
 </style>

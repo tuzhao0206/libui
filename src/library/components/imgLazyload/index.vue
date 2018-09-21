@@ -82,6 +82,18 @@ export default {
     );
   },
   methods: {
+    getPosition(element) {
+      let xPosition = 0;
+      let yPosition = 0;
+
+      while (element) {
+        xPosition += element.offsetLeft - element.scrollLeft + element.clientLeft;
+        yPosition += element.offsetTop - element.scrollTop + element.clientTop;
+        element = element.offsetParent;
+      }
+
+      return { x: xPosition, y: yPosition };
+    },
     handleSize() {
       if (this.size > 0) {
         let src = this.filteredImgSrc;
@@ -108,13 +120,14 @@ export default {
     },
     handleScroll() {
       let scrollHeightEnd = window.scrollY + window.innerHeight;
-      if (this.$refs.imgContainer.offsetTop <= scrollHeightEnd) {
+      let offSet = this.getPosition(this.$refs.imgContainer);
+      if (offSet.y <= scrollHeightEnd) {
         this.actualImgSrc = this.filteredImgSrc;
         // 赋值完成后，取消事件绑定
         // 去除裂图带来的诡异问题
         window.removeEventListener('scroll', this.handleScroll);
         // 调试用
-        //console.log('load:', this.index);
+        console.log('load:', this.index, offSet.y, scrollHeightEnd);
       }
     },
   },
