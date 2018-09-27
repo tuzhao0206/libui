@@ -39,7 +39,6 @@
     <ul>
       <li>如果图片裂了，可能是由于errorImg链接无法加载导致的</li>
       <li>新增imgsrc data是为了防止出现"vue Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: imgSrc" 错误</li>
-      <li>遗留问题：error的话会跳出所有的index，而且多个error图片渲染有错误</li>
     </ul>
     <div class="product" v-for="(product, index) in productObj" :key="index">
       <bt-img-lazyload
@@ -87,6 +86,14 @@ export default {
         },
         {
           img: 'https://file.bitmain.com/test.xi/test/2018/08/27/15/56f0d85f-9ae2-1234f6f-90e0-a5bf9fd8af98.png',
+        },
+        {
+          img:
+            'https://file.bitmain.com/shop-image-storage/product/2018/09/21/12/12c83cba-9d85-4b50-adb5-c1d77df06d11.png',
+        },
+        {
+          img:
+            'https://file5.bitmain.com/shop-image-storage/product/2018/09/21/12/12c83cba-9d85-4b50-adb5-c1d77df06d11.png',
         },
       ],
     };

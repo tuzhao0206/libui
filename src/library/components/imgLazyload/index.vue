@@ -55,7 +55,9 @@ export default {
 
     let scrollHeightEnd = window.scrollY + window.innerHeight;
 
-    if (this.$refs.imgContainer.offsetTop < scrollHeightEnd) {
+    let offsetTop = this.getPosition(this.$refs.imgContainer).y;
+
+    if (offsetTop < scrollHeightEnd) {
       this.actualImgSrc = this.filteredImgSrc;
     }
 
