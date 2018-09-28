@@ -49,6 +49,10 @@ export default {
           link: 'example/switch',
           name: 'switch开关',
         },
+        {
+          link: 'example/marquee',
+          name: '跑马灯',
+        },
       ],
     };
   },

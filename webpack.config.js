@@ -28,7 +28,7 @@ module.exports = function(env, args) {
   const IS_PRODUCTION = args.mode === 'production';
   return {
     entry: {
-      bitmainui: IS_PRODUCTION ? './src/library/index.js' : './src/index.js',
+      bitmainui: IS_PRODUCTION ? './src/index.js' : './src/index.js',
     },
     output: {
       filename: SCRIPT_FORMAT,

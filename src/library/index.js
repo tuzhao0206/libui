@@ -13,6 +13,7 @@ import RadioGroup from './components/radio/radio-group.vue';
 import Checkbox from './components/checkbox';
 import CheckboxGroup from './components/checkbox/checkbox-group.vue';
 import Switch from './components/switch';
+import Marquee from './components/marquee';
 
 import ImgLazyload from './components/imgLazyload';
 
@@ -30,7 +31,7 @@ const library = {
   Checkbox,
   CheckboxGroup,
   Switch,
-
+  Marquee,
   ImgLazyload,
 };
 
