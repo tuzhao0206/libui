@@ -53,6 +53,10 @@ export default {
           link: 'example/marquee',
           name: '跑马灯',
         },
+        {
+          link: 'example/swipe',
+          name: '轮播图',
+        },
       ],
     };
   },
