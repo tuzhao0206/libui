@@ -44,22 +44,14 @@ export default {
   data: function() {
     return {
       imgError: false,
-      actualImgSrc: '',
+      actualImgSrc: this.loadingSrc,
       filteredImgSrc: this.imgSrc,
     };
   },
   mounted() {
-    this.actualImgSrc = this.loadingSrc;
-
     this.handleSize();
 
-    let scrollHeightEnd = window.scrollY + window.innerHeight;
-
-    let offsetTop = this.getPosition(this.$refs.imgContainer).y;
-
-    if (offsetTop < scrollHeightEnd) {
-      this.actualImgSrc = this.filteredImgSrc;
-    }
+    this.imgInit();
 
     if (this.$refs.imgContainer.querySelector('img').src !== this.filteredImgSrc) {
       window.addEventListener('scroll', this.handleScroll);
@@ -95,6 +87,15 @@ export default {
       }
 
       return { x: xPosition, y: yPosition };
+    },
+    imgInit() {
+      let scrollHeightEnd = window.scrollY + window.innerHeight;
+
+      let offsetTop = this.getPosition(this.$refs.imgContainer).y;
+
+      if (offsetTop < scrollHeightEnd) {
+        this.actualImgSrc = this.filteredImgSrc;
+      }
     },
     handleSize() {
       if (this.size > 0) {

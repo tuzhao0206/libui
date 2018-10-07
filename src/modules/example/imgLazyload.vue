@@ -37,7 +37,7 @@
     </table>
     <br>
     <ul>
-      <li>如果图片裂了，可能是由于errorImg链接无法加载导致的</li>
+      <li>如果图片裂了或者无法显示，可能是由于errorImg链接无法加载导致的</li>
       <li>新增imgsrc data是为了防止出现"vue Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: imgSrc" 错误</li>
     </ul>
     <div class="product" v-for="(product, index) in productObj" :key="index">
