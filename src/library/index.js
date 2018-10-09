@@ -15,6 +15,7 @@ import CheckboxGroup from './components/checkbox/checkbox-group.vue';
 import Switch from './components/switch';
 import Marquee from './components/marquee';
 import Swipe from './components/swipe';
+import Image from './components/image';
 
 import ImgLazyload from './components/imgLazyload';
 
@@ -35,6 +36,7 @@ const library = {
   Marquee,
   ImgLazyload,
   Swipe,
+  Image,
 };
 
 // AbCdEf => ab-cd-ef
