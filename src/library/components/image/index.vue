@@ -2,7 +2,7 @@
   <img ref="image" :src="source" />
 </template>
 <script>
-import { getOffset } from '../utils/helper';
+import { getOffset } from '../../utils/helper';
 export default {
   props: {
     src: { type: String, required: true },
