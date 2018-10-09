@@ -6,10 +6,8 @@ import { getOffset } from '../../utils/helper';
 export default {
   props: {
     src: { type: String, required: true },
-    mark: {
-      type: String,
-      default: 'https://dn-bitmain-cdn.qbox.me/common-layout/beta/holder.png',
-    },
+    mark: { type: String, default: 'https://dn-bitmain-cdn.qbox.me/common-layout/beta/holder.png?_=2' },
+    thumb: { type: Number, default: 0 },
   },
   data() {
     return {
@@ -36,6 +34,25 @@ export default {
       this.timer = setTimeout(fn, 300);
     },
 
+    getThumb() {
+      if (this.thumb > 0) {
+        const src = this.src;
+        const index = src.lastIndexOf('/');
+        const prefix = src.substring(0, index);
+        const suffix = src.substring(index);
+
+        let format = '.jpg';
+        const reg = /\.(png|jpg|jpeg)$/;
+        const matches = src.match(reg);
+        if (matches) {
+          format = matches[0];
+        }
+
+        return src.replace(reg, '') + `_${this.thumb}${format}`;
+      }
+      return this.src;
+    },
+
     handler() {
       this.frameReduce(() => {
         const TH = 300; // 阈值
@@ -52,12 +69,24 @@ export default {
           // 先清理监听
           this.release();
 
-          // 立即切换
           let preload = new Image();
           preload.onload = () => {
-            this.source = this.src;
+            this.source = preload.src;
           };
-          preload.src = this.src;
+          if (this.thumb) {
+            let count = 0;
+            preload.src = this.getThumb();
+            preload.onerror = () => {
+              if (count >= 1) {
+                preload = null;
+              } else {
+                count += 1;
+                preload.src = this.src;
+              }
+            };
+          } else {
+            preload.src = this.src;
+          }
         }
       });
     },
